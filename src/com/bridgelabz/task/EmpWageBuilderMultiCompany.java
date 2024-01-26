@@ -1,14 +1,12 @@
 package com.bridgelabz.task;
 
-public class EmpWageBuilderClassMethod {
+public class EmpWageBuilderMultiCompany {
 	
 	public static final int Is_Part_Time = 1;
 	public static final int Is_Full_Time = 2;
-	public static final int Emp_Rate_Per_Hour = 20;
-	public static final int Num_Of_Working_Days = 2;
-	public static final int Max_Hrs_In_Month = 10;
-
-	public static int computeEmpWage() {
+	
+	public static int computeEmpWage(String company, int empRatePerHour,
+			int numOfWorkingDays, int maxHoursPerMonth) {
 		
 		// Variables
 		
@@ -16,8 +14,8 @@ public class EmpWageBuilderClassMethod {
 		int totalEmpHrs = 0 ;
 		int totalWorkingDays = 0;
 		
-		while (totalEmpHrs <= Max_Hrs_In_Month &&
-				totalWorkingDays < Num_Of_Working_Days ) {
+		while (totalEmpHrs <= maxHoursPerMonth &&
+				totalWorkingDays < numOfWorkingDays ) {
 			totalWorkingDays++;
 			int empCheck = (int) Math.floor(Math.random()* 10) % 3;
 			switch (empCheck) {
@@ -33,12 +31,14 @@ public class EmpWageBuilderClassMethod {
 			totalEmpHrs += empHrs;
 			System.out.println("Day#: "+ totalWorkingDays + "Emp hr: " +empHrs);
 		}
-		int totalEmpWage = totalEmpHrs * Emp_Rate_Per_Hour;
-		System.out.println("Total Emp Wage: " + totalEmpWage);
+		int totalEmpWage = totalEmpHrs * empRatePerHour;
+		System.out.println("Total Emp Wage for company: " + company+" is: "+ totalEmpWage);
 		return totalEmpWage;
 	}
 	public static void main(String[]args) {
-		computeEmpWage();
+		computeEmpWage("DMart", 20, 2, 10);
+		computeEmpWage("Reliance", 10, 4, 20);
+		
 	}
 
 }
