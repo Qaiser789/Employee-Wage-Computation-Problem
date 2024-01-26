@@ -1,6 +1,6 @@
 package com.bridgelabz.task;
 
-public class EmpWageBuilder {
+public class EmpWageBuilderClassMethod {
 	
 	public static final int Is_Part_Time = 1;
 	public static final int Is_Full_Time = 2;
@@ -8,7 +8,7 @@ public class EmpWageBuilder {
 	public static final int Num_Of_Working_Days = 2;
 	public static final int Max_Hrs_In_Month = 10;
 
-	public static void main(String[] args) {
+	public static int computeEmpWage() {
 		
 		// Variables
 		
@@ -35,6 +35,10 @@ public class EmpWageBuilder {
 		}
 		int totalEmpWage = totalEmpHrs * Emp_Rate_Per_Hour;
 		System.out.println("Total Emp Wage: " + totalEmpWage);
+		return totalEmpWage;
+	}
+	public static void main(String[]args) {
+		computeEmpWage();
 	}
 
 }
